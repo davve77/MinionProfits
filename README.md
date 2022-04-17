@@ -1,2 +1,3 @@
 # MinionProfits
-An easy-to-use &amp; accurate Hypixel Skyblock Minion Profit Calculator.
+An easy-to-use, accurate & open source Hypixel Skyblock Minion Profit Calculator  
+[https://davve77.github.io/MinionProfits/](https://davve77.github.io/MinionProfits/)
