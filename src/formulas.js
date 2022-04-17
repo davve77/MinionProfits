@@ -17,7 +17,7 @@ function getResults(actionCooldown, itemsPerAction, itemPrice, bonusSpeed, minio
 }
 
 
-function calculateBonuses(fuel, upg1, upg2, extra){
+function calculateBonuses(fuel, upg1, upg2, extra = 0){
     let usingDiamSpread = upg1 == 'diamspreading' || upg2 == 'diamspreading'
     let fuelUsed = fuel / 100
     let upgrades = (isNaN(upg1) ? 0 : (upg1 / 100)) + (isNaN(upg2) ? 0 : (upg2 / 100))
