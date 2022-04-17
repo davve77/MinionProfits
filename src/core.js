@@ -32,3 +32,6 @@ function calculate(){
 
 
 document.querySelector('#calcbtn').addEventListener('click', calculate)
+document.addEventListener('keydown', e => {
+    if(e.key == 'Enter') calculate()
+})
