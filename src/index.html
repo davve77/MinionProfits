@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>MinionProfits</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900">
+	<link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/icon.ico">
+    <script src="formulas.js"></script>
+</head>
+
+<body>
+	<div style="position: absolute;width: 100%;height: 100%;display: flex;align-items: center;justify-content: center; background: url(assets/background.svg); background-size: contain; background-repeat: no-repeat;">
+		<div id="main" style="position: relative;background: rgb(27,27,30);box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;border-radius: 10px;padding: 0 15px;display: flex;flex-direction: column;">
+			<h1 style="font-weight: 600;padding: 15px 0;">Minion Profits</h1>
+			<div style="flex: 1;display: flex;flex-direction: row;">
+				<div style="flex: 1;">
+					<p style="color: rgba(255,255,255,0.41);font-weight: 500;font-size: 14px;">CALCULATOR</p>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Time Between Actions</label>
+						<input id="actionCooldown" type="number">
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Resources Per Action</label>
+						<input id="itemsPerAction" type="number">
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Price Per Item</label>
+						<input id="itemPrice" type="number">
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Bonus Speed (%)</label>
+						<input id="bonus" type="number">
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Fuel</label>
+						<select id="fuel" class="form-control">
+							<option value="0" selected>None</option>
+							<option value="25">Enchanted Lava Bucket</option>
+							<option value="30">Magma Bucket</option>
+							<option value="35">Plasma Bucket</option>
+							<option value="40">Everburning Flame (alpha)</option>
+							<option value="200">Catalyst</option>
+							<option value="300">Hyper Catalyst</option>
+							<option value="90">Foul Flesh</option>
+							<option value="50">Hamster Wheel</option>
+							<option value="10">Enchanted Coal</option>
+							<option value="20">Enchanted Charcoal</option>
+						</select>
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Upgrade 1</label>
+						<select id="upgrade1" class="form-control">
+							<option value="0" selected>None</option>
+							<option value="diamspreading">Diamond Spreading</option>
+							<option value="20">Flycatcher</option>
+							<option value="5">Minion Expander</option>
+						</select>
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Upgrade 2</label>
+						<select id="upgrade2" class="form-control">
+							<option value="0" selected>None</option>
+							<option value="diamspreading">Diamond Spreading</option>
+							<option value="20">Flycatcher</option>
+							<option value="5">Minion Expander</option>
+						</select>
+					</div>
+					<div class="act" style="padding-top: 10px;">
+						<label class="lb">Minion Count</label>
+						<input id="minionCount" type="number">
+					</div>
+					<div style="padding: 25px 0;">
+						<button id="calcbtn" class="btn btn-primary" type="button">Calculate</button>
+					</div>
+				</div>
+				<div style="flex: 1;text-align: right;">
+					<p style="color: rgba(255,255,255,0.41);font-weight: 500;font-size: 14px;">RESULTS</p>
+					<div id="results" style="padding-top: 10px; display: none;">
+                        <p id="minute" style="color: rgba(255,255,255,0.57);font-weight: 400;font-size: 16px;">Coins/Min:&nbsp;<span class="coins">0</span></p>
+                        <p id="hour" style="color: rgba(255,255,255,0.57);font-weight: 400;font-size: 16px;">Coins/Hour:&nbsp;<span class="coins">0</span></p>
+						<p id="day" style="color: rgba(255,255,255,0.57);font-weight: 400;font-size: 16px;">Coins/Day:&nbsp;<span class="coins">0</span></p>
+						<p id="week" style="color: rgba(255,255,255,0.57);font-weight: 400;font-size: 16px;">Coins/Week:&nbsp;<span class="coins">0</span></p>
+						<p id="month" style="color: rgba(255,255,255,0.57);font-weight: 400;font-size: 16px;">Coins/Month:&nbsp;<span class="coins">0</span></p>
+						<p id="year" style="color: rgba(255,255,255,0.57);font-weight: 400;font-size: 16px;">Coins/Year:&nbsp;<span class="coins">0</span></p>
+					</div>
+					<p id="noresults" style="color: rgba(255,255,255,0.67);font-weight: 500;font-size: 16px;">No results yet.</p>
+				</div>
+			</div>
+			<div id="credits">
+				<p style="color: white;font-size: 13px;font-weight: 300;">project by&nbsp;david77#3909</p>
+                <div>
+                    <a href="https://github.com/davve77/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="white" width="19" height="19" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a>
+                    <a href="https://ko-fi.com/david77" target="_blank"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="19" height="19" viewBox="0 0 64 64" version="1.1" id="svg15" sodipodi:docname="ko-fi-icon.svg" inkscape:version="0.92.4 (5da689c313, 2019-01-14)"> <g id="g856" transform="matrix(1.9656019,0,0,1.9656019,-2.8167172e-7,-51.10565)"> <g transform="translate(0,26)" id="Group-4" style="fill:none;fill-rule:nonzero;stroke:none;stroke-width:1"> <circle id="Oval" cx="16.280001" cy="16.280001" r="16.280001" style="fill:#29abe0"></circle> <path d="m 22.257931,8.8 h 1.607617 C 26.966324,8.8 29.48,11.313676 29.48,14.414452 v 0.330015 c 0,3.100776 -2.513676,5.614452 -5.614452,5.614452 h -1.607617 v 1.689795 c 0,1.431128 -1.160158,2.591286 -2.591286,2.591286 H 7.4312857 C 6.0001581,24.64 4.84,23.479842 4.84,22.048714 V 10.095643 C 4.84,9.3800791 5.4200791,8.8 6.1356429,8.8 Z m 0,2.996757 v 5.565405 h 1.465573 c 1.536844,0 2.782703,-1.245858 2.782703,-2.782702 0,-1.536845 -1.245859,-2.782703 -2.782703,-2.782703 z" id="Rectangle-2" inkscape:connector-curvature="0" style="fill:#ffffff"></path> </g> <g id="Group" transform="translate(4.84,34.8)" style="fill:#ff5e5b;fill-rule:nonzero;stroke:none;stroke-width:1"> <path d="M 8.36,5.2768458 C 8.7602942,4.1056152 9.7089414,3.52 11.205941,3.52 c 2.2455,0 3.077965,2.7936503 1.900934,4.62 C 12.322188,9.3575665 10.739896,10.897567 8.36,12.76 5.9801039,10.897567 4.3978123,9.3575665 3.613125,8.14 2.4360941,6.3136503 3.2685587,3.52 5.5140587,3.52 7.0110586,3.52 7.9597058,4.1056152 8.36,5.2768458 Z" id="Path-2" inkscape:connector-curvature="0"></path> </g> </g> </svg></a>
+                </div>
+			</div>
+		</div>
+	</div>
+    <script src="core.js"></script>
+</body>
+
+</html>
