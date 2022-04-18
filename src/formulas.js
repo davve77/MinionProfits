@@ -19,10 +19,10 @@ function getResults(actionCooldown, itemsPerAction, itemPrice, bonusSpeed, minio
 
 function calculateBonuses(fuel, upg1, upg2, extra = 0){
     let usingDiamSpread = upg1 == 'diamspreading' || upg2 == 'diamspreading'
-    let extra = extra ?? 0
+    let extraSpeed = extra ?? 0
     let upgrades = (isNaN(upg1) ? 0 : (upg1 / 100)) + (isNaN(upg2) ? 0 : (upg2 / 100))
 
-    return [(fuel / 100) + upgrades + (extra / 100), usingDiamSpread]
+    return [(fuel / 100) + upgrades + (extraSpeed / 100), usingDiamSpread]
 }
 
 
