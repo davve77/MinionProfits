@@ -14,8 +14,8 @@ function calculate(){
           noResults =           document.querySelector('#noresults'),
           results =             document.querySelector('#results')
 
-    let allBonuses = calculateBonuses(fuel, upgrade1, upgrade2, bonus)
-    let profits = getResults(actionCooldown, itemsPerAction, itemPrice, allBonuses[0], minionCount, allBonuses[1])
+    let allBonuses = calculateBonuses(actionCooldown, fuel, upgrade1, upgrade2, bonus)
+    let profits = getResults(allBonuses.cooldown, itemsPerAction, itemPrice, minionCount, allBonuses.diamProfits)
 
     if(isNaN(profits.day)) return
 

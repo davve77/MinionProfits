@@ -1,9 +1,9 @@
-// Formulas from unofficial Wiki
+// Formulas
 
 
-function getResults(actionCooldown, itemsPerAction, itemPrice, bonusSpeed, minionCount, usingDiamSpread){
+function getResults(actionCooldown, itemsPerAction, itemPrice, minionCount, diamProfits){
 
-    let calc = (86400 / (actionCooldown / (1 + bonusSpeed)) * itemsPerAction * itemPrice) * minionCount + (usingDiamSpread ? (138240 / actionCooldown) : 0)
+    let calc = ((86400 / actionCooldown * itemsPerAction * itemPrice) + diamProfits) * minionCount
     let results = {
         minute: calc / 1440,
         hour:   calc / 24,
@@ -17,12 +17,35 @@ function getResults(actionCooldown, itemsPerAction, itemPrice, bonusSpeed, minio
 }
 
 
-function calculateBonuses(fuel, upg1, upg2, extra = 0){
-    let usingDiamSpread = upg1 == 'diamspreading' || upg2 == 'diamspreading'
-    let extraSpeed = extra ?? 0
-    let upgrades = (isNaN(upg1) ? 0 : (upg1 / 100)) + (isNaN(upg2) ? 0 : (upg2 / 100))
+function calculateBonuses(actionCooldown, fuel, upg1, upg2, extra){
 
-    return [(fuel / 100) + upgrades + (extraSpeed / 100), usingDiamSpread]
+    let usingDiamSpread = upg1 == 'diamspreading' || upg2 == 'diamspreading'
+    let upgSum = Number(numberCheck(upg1) + numberCheck(upg2))
+    let extraSpeed = numberCheck(extra)
+    let totalBonuses = fuel + upgSum + extraSpeed
+    let newCooldown = subtractPercent(actionCooldown, totalBonuses)
+    let diamProfits = usingDiamSpread ? 138240 / newCooldown : 0
+
+    return {
+        cooldown: newCooldown,
+        diamProfits: diamProfits,
+        bonuses: totalBonuses
+    }
+}
+
+
+function numberCheck(num){
+    return isNaN(num) ? 0 : num
+}
+
+
+function addPercent(sum, percent){
+    return sum * (1 + (percent / 100))
+}
+
+
+function subtractPercent(sum, percent){
+    return sum / (1 + (percent / 100))
 }
 
 

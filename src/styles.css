@@ -130,3 +130,17 @@ input[type="number"]:focus {
 #credits a{
   display: flex;
 }
+
+.transparent-btn{
+  background: 0;
+  box-shadow: none;
+  padding: 6px 12px;
+  color: #e4e4e4;
+  font-size: 13px;
+  font-weight: 100;
+  transition: .167s cubic-bezier(0,0,0,1);
+}
+
+.transparent-btn:hover{
+  background: #ffffff08!important;
+}
