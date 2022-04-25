@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<title>MinionProfits</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900">
-	<link rel="stylesheet" href="src/assets/styles.css">
+	<link rel="stylesheet" href="src/styles.css">
     <link rel="icon" href="src/assets/icon.ico">
     <script src="src/formulas.js"></script>
 </head>
@@ -74,7 +74,7 @@
 					</div>
 					<div style="padding: 25px 0;display: flex;align-items: center;gap: 12px;">
 						<button id="calcbtn" class="btn btn-primary" type="button">Calculate</button>
-						<button class="btn transparent-btn" style="display: none;">Minion Presets</button>
+						<button id="presetsbtn" class="btn transparent-btn">Minion Presets</button>
 					</div>
 				</div>
 				<div style="flex: 1;text-align: right;">
@@ -98,8 +98,294 @@
                 </div>
 			</div>
 		</div>
+		<div id="presets" style="display: none!important; position: relative; background: rgb(27, 27, 30); box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; border-radius: 10px; padding: 0px 15px; flex-direction: column;width: 400px;height: 600px;">
+			<div style="padding: 15px 0;display: flex;align-items: center;gap: 5px;">
+				<button id="backbtn" class="btn transparent-btn" style="display: flex;padding: 6px;">
+					<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" fill="rgb(228, 228, 228)">
+						<path d="M0 0h24v24H0V0z" fill="none"></path>
+						<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+					</svg>
+				</button>
+				<h1 style="font-weight: 600;font-size: 21px;">Minion Presets</h1> </div>
+			<div id="presetlist" style="flex: 1; overflow: auto;">
+
+
+				<p class="preset-category">Popular</p>
+
+				<div class="minion-preset" actionCooldown="13" resources="2" itemPrice="1">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/60/Snow_Minion_XI.png">
+					<p>Snow Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="6.5" resources="2" itemPrice="1">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/60/Snow_Minion_XI.png">
+					<p>Snow Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="32" resources="2" itemPrice="3">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/a/a9/Clay_Minion_XI.png">
+					<p>Clay Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="16" resources="2" itemPrice="3">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/a/a9/Clay_Minion_XI.png">
+					<p>Clay Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="29" resources="0.5" itemPrice="8">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/5/5f/Diamond_Minion_XII.png">
+					<p>Diamond Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="12" resources="0.5" itemPrice="8">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/5/5f/Diamond_Minion_XII.png">
+					<p>Diamond Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="29" resources="3" itemPrice="1">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/8/86/Lapis_Minion_XII.png">
+					<p>Lapis Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="16" resources="3" itemPrice="1">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/8/86/Lapis_Minion_XII.png">
+					<p>Lapis Minion XII</p>
+				</div>
+
+
+
+				<p class="preset-category">Farming</p>
+
+				<div class="minion-preset" actionCooldown="24" resources="2.5" itemPrice="1.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/f/fa/Melon_Minion_XII.png">
+					<p>Melon Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="10" resources="2.5" itemPrice="1.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/f/fa/Melon_Minion_XII.png">
+					<p>Melon Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="20" resources="0.5" itemPrice="1.6">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/2/27/Potato_Minion_XII.png">
+					<p>Potato Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="8" resources="0.5" itemPrice="1.6">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/2/27/Potato_Minion_XII.png">
+					<p>Potato Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="20" resources="0.5" itemPrice="1">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/8/87/Carrot_Minion_XII.png">
+					<p>Carrot Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="8" resources="0.5" itemPrice="1">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/8/87/Carrot_Minion_XII.png">
+					<p>Carrot Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="30" resources="0.5" itemPrice="15.5">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/7/7f/Mushroom_Minion_XII.png">
+					<p>Mushroom Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="12" resources="0.5" itemPrice="15.5">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/7/7f/Mushroom_Minion_XII.png">
+					<p>Mushroom Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="1" itemPrice="3">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/a/a7/Cocoa_Beans_Minion_XII.png">
+					<p>Cocoa Beans Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="12" resources="1" itemPrice="3">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/a/a7/Cocoa_Beans_Minion_XII.png">
+					<p>Cocoa Beans Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="15" resources="1.5" itemPrice="1.5">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/e/e2/Wheat_Minion_XII.png">
+					<p>Wheat Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="7" resources="1.5" itemPrice="1.5">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/e/e2/Wheat_Minion_XII.png">
+					<p>Wheat Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="22" resources="2" itemPrice="2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/0/05/Sugar_Cane_Minion_XII.png">
+					<p>Sugar Cane Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="9" resources="2" itemPrice="2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/0/05/Sugar_Cane_Minion_XII.png">
+					<p>Sugar Cane Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="32" resources="0.5" itemPrice="4">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/0/0e/Pumpkin_Minion_XII.png">
+					<p>Pumpkin Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="12" resources="0.5" itemPrice="4">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/0/0e/Pumpkin_Minion_XII.png">
+					<p>Pumpkin Minion XII</p>
+				</div>
+
+
+
+				<p class="preset-category">Mining</p>
+
+				<div class="minion-preset" actionCooldown="14" resources="0.5" itemPrice="4.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/4/47/Cobblestone_Minion_XII.png">
+					<p>Cobblestone Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="6" resources="0.5" itemPrice="4.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/4/47/Cobblestone_Minion_XII.png">
+					<p>Cobblestone Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="15" resources="0.5" itemPrice="3.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/8/88/Coal_Minion_XII.png">
+					<p>Coal Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="6" resources="0.5" itemPrice="3.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/8/88/Coal_Minion_XII.png">
+					<p>Coal Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="17" resources="0.5" itemPrice="8.4">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/6f/Iron_Minion_XII.png">
+					<p>Iron Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="7" resources="0.5" itemPrice="8.4">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/6f/Iron_Minion_XII.png">
+					<p>Iron Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="22" resources="0.5" itemPrice="5.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/f/f1/Gold_Minion_XII.png">
+					<p>Gold Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="9" resources="0.5" itemPrice="5.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/f/f1/Gold_Minion_XII.png">
+					<p>Gold Minion XII</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="22.5" resources="0.5" itemPrice="6.6">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/1/1a/Quartz_Minion_XI.png">
+					<p>Quartz Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="11.5" resources="0.5" itemPrice="6.6">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/1/1a/Quartz_Minion_XI.png">
+					<p>Quartz Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="26" resources="0.5" itemPrice="3">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/64/Gravel_Minion_XI.png">
+					<p>Gravel Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="13" resources="0.5" itemPrice="3">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/64/Gravel_Minion_XI.png">
+					<p>Gravel Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="14" resources="0.5" itemPrice="4.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/f/ff/Ice_Minion_XI.png">
+					<p>Ice Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="7" resources="0.5" itemPrice="4.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/f/ff/Ice_Minion_XI.png">
+					<p>Ice Minion XI</p>
+				</div>
+
+
+
+				<p class="preset-category">Foraging</p>
+
+				<div class="minion-preset" actionCooldown="48" resources="0.5" itemPrice="5.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/3/32/Oak_Minion_XI.png">
+					<p>Oak Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="0.5" itemPrice=5.2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/3/32/Oak_Minion_XI.png">
+					<p>Oak Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="48" resources="0.5" itemPrice=6.7">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/62/Spruce_Minion_XI.png">
+					<p>Spurce Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="0.5" itemPrice=6.7">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/6/62/Spruce_Minion_XI.png">
+					<p>Spurce Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="48" resources="0.5" itemPrice="2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/3/32/Birch_Minion_XI.png">
+					<p>Birch Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="0.5" itemPrice="2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/3/32/Birch_Minion_XI.png">
+					<p>Birch Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="48" resources="0.5" itemPrice="2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/a/ab/Dark_Oak_Minion_XI.png">
+					<p>Dark Oak Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="0.5" itemPrice="2">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/a/ab/Dark_Oak_Minion_XI.png">
+					<p>Dark Oak Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="48" resources="0.5" itemPrice="9">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/3/35/Acacia_Minion_XI.png">
+					<p>Acacia Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="0.5" itemPrice="9">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/3/35/Acacia_Minion_XI.png">
+					<p>Acacia Minion XI</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="48" resources="0.5" itemPrice="5.9">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/d/d6/Jungle_Minion_XI.png">
+					<p>Jungle Minion I</p>
+				</div>
+
+				<div class="minion-preset" actionCooldown="27" resources="0.5" itemPrice="5.9">
+					<img src="https://static.wikia.nocookie.net/hypixel-skyblock/images/d/d6/Jungle_Minion_XI.png">
+					<p>Jungle Minion XI</p>
+				</div>
+
+
+
+
+
+			</div>
+			<div style="display: flex;padding: 15px 0;">
+				<button id="selectbtn" class="btn btn-primary" type="button" style="width: 100%;">Select Minion</button>
+			</div>
+		</div>
 	</div>
     <script src="src/core.js"></script>
+	<script src="src/presets.js"></script>
 </body>
 
 </html>

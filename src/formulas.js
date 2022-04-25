@@ -22,7 +22,7 @@ function calculateBonuses(actionCooldown, fuel, upg1, upg2, extra){
     let usingDiamSpread = upg1 == 'diamspreading' || upg2 == 'diamspreading'
     let upgSum = Number(numberCheck(upg1) + numberCheck(upg2))
     let extraSpeed = numberCheck(extra)
-    let totalBonuses = fuel + upgSum + extraSpeed
+    let totalBonuses = 100 + fuel + upgSum + extraSpeed
     let newCooldown = subtractPercent(actionCooldown, totalBonuses)
     let diamProfits = usingDiamSpread ? 138240 / newCooldown : 0
 
@@ -39,13 +39,8 @@ function numberCheck(num){
 }
 
 
-function addPercent(sum, percent){
-    return sum * (1 + (percent / 100))
-}
-
-
 function subtractPercent(sum, percent){
-    return sum / (1 + (percent / 100))
+    return sum / ((percent / 100))
 }
 
 
