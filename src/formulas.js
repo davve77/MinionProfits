@@ -1,8 +1,7 @@
 // Formulas
 
-
 function getResults(actionCooldown, itemsPerAction, itemPrice, minionCount, diamProfits){
-
+    
     let calc = ((86400 / actionCooldown * itemsPerAction * itemPrice) + diamProfits) * minionCount
     let results = {
         minute: calc / 1440,
@@ -16,9 +15,8 @@ function getResults(actionCooldown, itemsPerAction, itemPrice, minionCount, diam
     return results
 }
 
-
 function calculateBonuses(actionCooldown, fuel, upg1, upg2, extra){
-
+    
     let usingDiamSpread = upg1 == 'diamspreading' || upg2 == 'diamspreading'
     let upgSum = Number(numberCheck(upg1) + numberCheck(upg2))
     let extraSpeed = numberCheck(extra)
@@ -33,16 +31,13 @@ function calculateBonuses(actionCooldown, fuel, upg1, upg2, extra){
     }
 }
 
-
 function numberCheck(num){
     return isNaN(num) ? 0 : num
 }
 
-
 function subtractPercent(sum, percent){
     return sum / ((percent / 100))
 }
-
 
 function beautify(float){
     return Math.round(float).toLocaleString()
